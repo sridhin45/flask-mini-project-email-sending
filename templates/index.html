@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>helo welcome</h2>
+    <a href="{{url_for('reg')}}">register</a>
+    <br>
+    <br>
+    <a href="{{url_for('login')}}">login</a>
+    <br>
+    <br>
+    <a href="{{url_for('update')}}">update profile</a>
+   
+</body>
+{% if get_flashed_messages() %} 
+    {% for m in get_flashed_messages() %}
+    <script>
+       alert('{{m}}')
+    </script> 
+    {% endfor %}
+    {% endif %}   
+
+</html>

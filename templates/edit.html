@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{ url_for('editaction') }}" method="post">
+
+         {% for i in edit %}
+           <input type="hidden" name="id" value="{{i.id}}">
+
+            <label for="">name</label>
+            <input type="text" name="name" value="{{i.name}}">
+            <br>
+            <br>
+            <label for="">gender</label>
+
+            <input type="text" name="gender" value="{{i.gender}}">
+            <br>
+            <br>
+            <label for="">address</label>
+            <textarea name="address"  id="">{{i.address}}</textarea>
+            <br>
+            <br>
+            <label for="">country</label>
+            <select name="country" value={{i.country}} id="country">
+                <option value="">{{i.country}}</option>
+                <option value="india">india</option>
+                <option value="china">china</option>
+                <option value="pakistan">pakistan</option>
+            </select>
+            <br>
+            <br>
+            <label for="">phonenumber</label>
+            <input type="postivenumber"name="phonenumber" value="{{i.phonenumber}}">
+            <br>
+            <br>
+            <label for="">username</label>
+            <input type="text" name="username" id="username" value="{{i.username}}">
+            <br>
+            <br>
+            <label for="">password</label>
+            <input type="password" name="password" value="{{i.password}}">
+            <br>
+            <br>
+            <input type="submit" value="update">
+        {% endfor %}
+    </form>
+
+</body>
+</html>

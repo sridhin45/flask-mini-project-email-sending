@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <table border="1">
+        <tr>
+            <th>receiverid</th>
+            <th>senderid</th>
+            <th>message</th>
+            <th>subject</th>
+            <th>date</th>
+            <th>time</th>
+            <th>status</th>
+        </tr>
+        {% for i in view %}
+        <tr>
+            <th>{{i.receiverid}}</th>
+            <th>{{i.senderid}}</th>
+            <th>{{i.message}}</th>
+            <th>{{i.subject}}</th>
+            <th>{{i.date}}</th>
+            <th>{{i.time}}</th>
+            <th>{{i.status}}</th>
+            <th><a href="{{url_for('deletemsg',uid=i.id)}}">delete message</a></th>
+      
+        </tr>
+       
+        {% endfor %}
+               
+            
+       
+
+    </table>
+</body>
+</html>

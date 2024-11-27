@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/static/jquery-1.8.3.min.js"></script>
+</head>
+<script>
+    $(document).ready(function(){
+        $("#receivername").change(function(){
+          var m=$("#receivername").val()
+          $.ajax({
+             url:"{{ url_for('receivername')}}",
+             data:{'m':m},
+             success:function(data)
+         {
+            if(data.valid!='exist')
+         {
+            alert('receiver not exist')
+         }
+         },
+         error:function(error)
+         {
+             alert("error occured")
+         }
+        
+        })
+     })
+    })
+    </script>
+<body>
+    
+    <form action="{{url_for('forwardaction')}}" method="post">
+        <label for="">receiver name</label>
+        <input type="text" id="receivername" name="receivername">
+        <br>
+        <br>
+        {% for i in row %}
+        <label for="">message</label>
+        <input type="text" name="message" value="{{i.message}}">
+        <br>
+        <br>
+        <label for="">subject</label>
+        <textarea name="subject" id="" value="">{{i.subject}}</textarea>
+        <br>
+        <br>
+        {% endfor %}
+        <input type="submit" value="send">
+
+    </form>
+</body>
+</html>

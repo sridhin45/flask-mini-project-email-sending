@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{ url_for ('replayaction')}}" method="post">
+        {% for i in row %}
+        <label for="">senderid</label>
+        <input type="text"name="receivername" value="{{i.username}}">
+        {% endfor %}
+        <br>
+        <br>
+        <label for="">message</label>
+        <input type="text" name="message">
+        <br>
+        <br>
+        <label for="">subject</label>
+        <textarea name="subject" id=""></textarea>
+        <br>
+        <br>
+        <input type="submit" value="send">
+    </form>
+</body>
+</html>

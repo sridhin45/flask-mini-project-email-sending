@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>hello welcome</h2>
+    <a href="{{url_for('mail')}}">send mail</a>
+    <br>
+    <a href="{{url_for('viewmsg')}}">view message</a>
+    <br>
+    <a href="{{url_for('receivemsg')}}">view received message</a>
+    <br>
+    <a href="{{url_for('logout')}}">logout</a>
+   
+
+    {% if get_flashed_messages() %} 
+    {% for m in get_flashed_messages() %}
+    <script>
+       alert('{{m}}')
+    </script> 
+    {% endfor %}
+    {% endif %}   
+
+
+</body>
+</html>

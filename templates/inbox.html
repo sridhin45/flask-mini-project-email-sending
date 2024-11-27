@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{ url_for ('movetotrash')}}" method="post">
+    <table border="1">
+        <tr>
+            <th>msgid</th>
+            <th>senderid</th>
+            <th>message</th>
+            <th>subject</th>
+            <th>date</th>
+            <th>time</th>
+            <th>status</th>
+        </tr>
+        {% for i in msg %}
+        <tr>
+            <th>{{i.id}}</th>
+            <th>{{i.senderid}}</th>
+            <th>{{i.message}}</th>
+            <th>{{i.subject}}</th>
+            <th>{{i.date}}</th>
+            <th>{{i.time}}</th>
+            <th>{{i.status}}</th>
+            <th>    <input type="checkbox" value="{{i.id}}" name="checkbox">
+            </th>
+            <th>    <input type="submit" value="submit">
+            <th><a href="{{url_for('forward',uid=i.id)}}">forward message</a></th>
+            <th><a href="{{url_for('replay',uid=i.id)}}">replay message</a></th>
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{url_for('viewtrash')}}">viewtrash</a>
+    </form>
+</body>
+</html>
